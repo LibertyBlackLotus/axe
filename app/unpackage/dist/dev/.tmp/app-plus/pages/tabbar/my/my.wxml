@@ -1,0 +1,1 @@
+<view class="content">页面 - 5<button type="primary" data-event-opts="{{[['tap',[['logout',['$event']]]]]}}" bindtap="__e">退出登录</button></view>

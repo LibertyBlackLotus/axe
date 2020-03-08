@@ -1,0 +1,6 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "n-a-u-icard": "/components/NAUI-card/NAUI-card"
+  }
+}

@@ -1,0 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"createButton.",[1],"data-v-6b622ca3 { position: fixed; bottom: ",[0,10],"; right: ",[0,10],"; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; justify-content: center; }\n.",[1],"createButton wx-button.",[1],"data-v-6b622ca3 { -webkit-box-flex: 1; -webkit-flex: auto; flex: auto; }\n",],undefined,{path:"./pages/tabbar/ax/ax.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabbar/ax/ax.wxml') } }));

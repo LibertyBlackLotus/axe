@@ -1,0 +1,1 @@
+<view class="content"><uni-list vue-id="1" bind:__l="__l" vue-slots="{{['default']}}"><block wx:for="{{axList}}" wx:for-item="item" wx:for-index="__i0__" wx:key="_id"><uni-list-item vue-id="{{('2-'+__i0__)+','+('1')}}" title="{{item.ax}}" bind:__l="__l" vue-slots="{{['default']}}">{{''+item.title+''}}</uni-list-item></block></uni-list></view>
