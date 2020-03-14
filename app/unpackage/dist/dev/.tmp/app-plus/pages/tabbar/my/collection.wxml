@@ -1,0 +1,1 @@
+<view><block wx:if="{{axCollectionListUser.length==0}}"><view class="content">暂无收藏</view></block><block wx:if="{{axCollectionListUser.length>0}}"><view><block wx:for="{{axCollectionListUser}}" wx:for-item="item" wx:for-index="__i0__" wx:key="_id"><n-a-u-icard vue-id="{{'1-'+__i0__}}" listData="{{item}}" bind:__l="__l"></n-a-u-icard></block></view></block></view>

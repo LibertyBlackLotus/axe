@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "发布斧头",
   "usingComponents": {
     "sunui-upimg": "/components/sunui-upimg/sunui-upimg"
   }

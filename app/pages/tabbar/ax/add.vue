@@ -1,6 +1,10 @@
 <template>
 	<view class="axContent">
-		<view><sunui-upimg v-if="updateImg" :url="uploadUrl" @set-aximg="setAxImg"></sunui-upimg></view>
+		<sunui-upimg :url="uploadUrl"
+					 @set-aximg="setAxImg"
+					 :header="header">
+
+		</sunui-upimg>
 		<view>
 			<view class="axTitle"><input class="uni-input" v-model="title" placeholder="添加标题" /></view>
 			<view class="axDesc"><textarea auto-height placeholder="心情状态,分享生活点滴" v-model="content" /></view>
@@ -22,19 +26,26 @@ export default {
 			axImg: [],
 			title: '',
 			content: '',
-			updateImg: true
+			updateImg: true,
+			header: {}
 		};
 	},
 
-	components: {
-		sunuiUpimg
-	},
+	 components: {
+	 	sunuiUpimg
+	 },
 
 	computed: {
 		...mapState({
 			axList: state => state.ax.axList, //斧头列表
 			axCreateStatus: state => state.ax.axCreateStatus //创建状态
 		})
+	},
+
+	onLoad(){
+		let token = uni.getStorageSync('myToken');
+		console.log('--onLoad--->', token);
+		this.header = {'Authorization': 'Bearer ' + token};
 	},
 
 	watch: {
@@ -57,20 +68,27 @@ export default {
 		},
 
 		//发布斧头
-		async publishAx() {
-			console.log('--publishAx--');
+		publishAx() {
 			let { title, content } = this;
+			if(!title || !content){
+				uni.showToast({
+					icon: 'none',
+					position: 'bottom',
+					title: '请填写标题或内容！'
+				});
+				return;
+			}
 			let params = {
 				ax: this.axImg,
 				title,
 				content,
-				author: getUserId()
+				author: getUserId(),
+				state: 1
 			};
-			console.log('--publishAx-->', params);
 			this.createAx(params);
 			this.axImg = [];
 			this.title = '';
-			this.content = ''
+			this.content = '';
 			this.updateImg = false;
 			setTimeout(() => {
 				this.updateImg = true;

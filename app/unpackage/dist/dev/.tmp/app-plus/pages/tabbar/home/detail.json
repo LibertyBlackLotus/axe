@@ -1,5 +1,8 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
-    "n-a-u-icard": "/components/NAUI-card/NAUI-card"
+    "min-badge": "/components/min-badge/min-badge",
+    "nav-bar": "/components/zhouWei-navBar/index",
+    "comment": "/pages/tabbar/home/comment"
   }
 }

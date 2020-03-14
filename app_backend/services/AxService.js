@@ -17,16 +17,6 @@ class AxService extends BaseDAO {
 	}
 
 	/**
-	 * 查询用户斧头列表
-	 * @param author 用户_id
-	 * @return {Array} 查询结果
-	 */
-	async findManyByUser(author) {
-		const result = await this.model.find({author}).sort({create_time: -1}).exec();
-		return result;
-	}
-
-	/**
 	 * id查询 populate
 	 * @param {String} id
 	 * @return {Object} 查询结果
@@ -35,6 +25,7 @@ class AxService extends BaseDAO {
 		const result = await this.model.findById(id).populate('author');
 		return result;
 	}
+
 
 }
 

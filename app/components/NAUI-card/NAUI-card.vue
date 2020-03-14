@@ -1,377 +1,279 @@
-<template name="NAUI-card">
-	<view class="cu-card dynamic margin-bottom-sm">
-		<view class="cu-item shadow ">
-			<view class="cu-list menu menu-avatar">
-				<view class="cu-item">
-					<view class="cu-avatar round lg">
-						<!-- 头像，匿名时显示统一的匿名头像，若需自定义请自行修改 -->
-						<image class="avatar round" :src="listData.author.avatar"></image>
-						<!-- <view  class="cu-tag badge bg-blue">V</view> -->
-					</view>
-					<view class="content padding-tbl">
-						<view class="henflex">
-							<view>{{ listData.author ? listData.author.username : '一位路过的吃瓜群众' }}</view>
-						</view>
-						<view class="text-gray text-sm flex justify-between">{{ listData.create_time }}</view>
-					</view>
-				</view>
-			</view>
-			<view @click="toDetail(listData._id)">
-				<view class="text-content">{{ listData.title }}</view>
-				<view class="grid col-1 flex-sub padding-lr">
-					<image mode="widthFix" :src="listData.ax[0]" />
-				</view>
-			</view>
-			
-			<!-- <view class="text-gray text-sm text-right padding">
-				<text class="right">浏览:{{ listData.show_times }}</text>
-				<text class="right">点赞:{{ listData.points }}</text>
-			</view> -->
-		</view>
-	</view>
+<template>
+    <view class="cu-card">
+        <view>
+            <view class="cu-list menu menu-avatar">
+                <view class="cu-item">
+                    <view class="cu-avatar round lg">
+                        <!-- 头像，匿名时显示统一的匿名头像，若需自定义请自行修改 -->
+                        <image class="avatar round"
+                               :src="listData.author.avatar? listData.author.avatar: defaultAvatar">
+                        </image>
+                    </view>
+                    <view class="content padding-tbl">
+                        <view class="henflex">
+                            <view>{{ listData.author ? listData.author.username : '吃瓜群众' }}</view>
+                        </view>
+                        <view class="text-gray text-sm flex justify-between">{{ listData.create_time | formatTime }}</view>
+                    </view>
+                </view>
+            </view>
+            <view @click="toDetail(listData._id)">
+                <view class="text-content">{{ listData.title }}</view>
+                <view class="grid col-1 flex-sub padding-lr">
+                    <image mode="widthFix" :src="listData.ax[0]"/>
+                </view>
+            </view>
+
+            <view class="text-gray text-sm text-right padding">
+                <text class="right">浏览:{{ listData.reads }}</text>
+                <text class="right">点赞:{{ listData.praises }}</text>
+            </view>
+        </view>
+    </view>
 </template>
 <script>
-export default {
-	name: 'NAUI-card',
+	import {formatDate} from '../../utils/common';
+	export default {
+		name: 'NAUI-card',
 
-	props: {
-		listData: {
-			type: Object
-		}
-	},
-	created: function(e) {
-		// this.listData.creat_time = this.dateTimeFormatter(parseInt(this.listData.creat_time)*1000)
-		console.log('---created-->', this.listData);
-	},
-	methods: {
-		// previewimg(url){//预览卡片图片
-		// 	uni.previewImage({
-		// 		urls:url,
-		// 		indicator: "number",
-		// 		loop:true,
-		// 	})
-		// },
-		toDetail(id) {
-			//卡片详情跳转，信息及详情页自定义
-			uni.navigateTo({
-				url: '/pages/tabbar/home/detail?id=' + id,
-				animationType: 'pop-in',
-				animationDuration: 200
-			});
+		props: {
+			listData: {
+				type: Object
+			}
 		},
-		dateTimeFormatter(t) {
-			t = new Date(t).getTime();
-			t = new Date(t);
-			var year = t.getFullYear();
-			var month = t.getMonth() + 1;
-			month = this.checkAddZone(month);
 
-			var date = t.getDate();
-			date = this.checkAddZone(date);
+        data(){
+			return {
+		        defaultAvatar: require('../../static/img/avatar.png')
+            }
+        },
 
-			var hour = t.getHours();
-			hour = this.checkAddZone(hour);
-
-			var min = t.getMinutes();
-			min = this.checkAddZone(min);
-
-			var se = t.getSeconds();
-			se = this.checkAddZone(se);
-
-			return year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + se;
+		filters: {
+			formatTime(time) {
+				let date = new Date(time);
+				return formatDate(date, 'yyyy-MM-dd hh:mm');
+			}
 		},
-		checkAddZone(num) {
-			return num < 10 ? '0' + num.toString() : num;
+
+		created: function (e) {
+			// this.listData.creat_time = this.dateTimeFormatter(parseInt(this.listData.creat_time)*1000)
+		},
+
+		methods: {
+			toDetail(id) {
+				//卡片详情跳转，信息及详情页自定义
+				uni.navigateTo({
+					url: '/pages/tabbar/home/detail?id=' + id,
+					animationType: 'pop-in',
+					animationDuration: 200
+				});
+			},
+			dateTimeFormatter(t) {
+				t = new Date(t).getTime();
+				t = new Date(t);
+				var year = t.getFullYear();
+				var month = t.getMonth() + 1;
+				month = this.checkAddZone(month);
+
+				var date = t.getDate();
+				date = this.checkAddZone(date);
+
+				var hour = t.getHours();
+				hour = this.checkAddZone(hour);
+
+				var min = t.getMinutes();
+				min = this.checkAddZone(min);
+
+				var se = t.getSeconds();
+				se = this.checkAddZone(se);
+
+				return year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + se;
+			},
+			checkAddZone(num) {
+				return num < 10 ? '0' + num.toString() : num;
+			}
 		}
-	}
-};
+	};
 </script>
-<style>
-.bg-orange {
-	background-color: #f37b1d;
-	color: #fff;
-}
+<style lang="scss" scoped>
+    .cu-card {
+        display: block;
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 10rpx;
+        padding: 10rpx;
+        border-bottom:1px solid #f1f1f1;
+    }
 
-.cu-tag.sm {
-	font-size: 20rpx;
-	padding: 0rpx 12rpx;
-	height: 32rpx;
-}
+    .flex-sub {
+        flex: 1;
+    }
 
-.padding {
-	padding: 30rpx;
-}
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        /*padding: 10rpx 0;*/
+    }
 
-.text-right {
-	text-align: right;
-}
+    .grid.col-1 > view {
+        width: 100%;
+    }
 
-.bg-img {
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
+    .justify-between {
+        justify-content: space-between;
+    }
 
-.padding-lr {
-	padding-left: 30rpx;
-	padding-right: 30rpx;
-}
+    .flex {
+        display: flex;
+    }
 
-.padding-tbl {
-	padding-left: 20rpx;
-	padding-top: 20rpx;
-	padding-bottom: 20rpx;
-}
+    .henflex {
+        display: flex;
+        flex-flow: row;
+    }
 
-.flex-sub {
-	flex: 1;
-}
+    .cu-list.menu > .cu-item .content {
+        line-height: 1.6em;
+        flex: 1;
+        font-size: 30rpx;
+    }
 
-.grid {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 10rpx 0;
-}
+    .cu-tag.badge {
+        border-radius: 200rpx;
+        position: absolute;
+        top: -10rpx;
+        right: -10rpx;
+        font-size: 20rpx;
+        padding: 0 10rpx;
+        height: 28rpx;
+        color: #fff;
+    }
 
-.grid.col-1 > view {
-	width: 100%;
-}
+    .cu-avatar.lg {
+        width: 80rpx;
+        height: 80rpx;
+        font-size: 2em;
+    }
 
-.text-content {
-	line-height: 1.6;
-}
+    .cu-avatar {
+        font-variant: small-caps;
+        margin: 0;
+        padding: 0;
+        display: inline-flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        color: #fff;
+        white-space: nowrap;
+        position: relative;
+        width: 64rpx;
+        height: 64rpx;
+        background-size: cover;
+        background-position: center;
+        vertical-align: middle;
+        font-size: 1.5em;
+    }
 
-.justify-between {
-	justify-content: space-between;
-}
+    .cu-list.menu {
+        display: block;
+        overflow: hidden;
+    }
 
-.flex {
-	display: flex;
-}
+    .cu-list + .cu-list {
+        margin-top: 30rpx;
+    }
 
-.text-sm {
-	font-size: 24rpx;
-}
+    .cu-list.menu > .cu-item {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100rpx;
+        background: #fff;
+        /*padding: 0 30rpx;*/
+    }
 
-.text-bold {
-	font-weight: bold;
-}
+    .cu-card > .cu-item.shadow-blur {
+        overflow: initial;
+    }
 
-.text-gray {
-	color: #aaa;
-}
+    .cu-card.no-card > .cu-item {
+        margin: 0rpx;
+        border-radius: 0rpx;
+    }
 
-.text-orange {
-	color: #f37b1d;
-}
+    .cu-card .grid.grid-square {
+        margin-bottom: -20rpx;
+    }
 
-.huati {
-	margin-left: auto;
-	margin-right: 20upx;
-}
+    .cu-card.case .image {
+        position: relative;
+    }
 
-.bg-blue {
-	background-color: #0081ff;
-	color: #fff;
-}
+    .cu-card.case .image image {
+        width: 100%;
+    }
 
-.right {
-	margin-left: 20upx;
-}
+    .cu-card.case .image .cu-tag {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
 
-.henflex {
-	display: flex;
-	flex-flow: row;
-}
+    .cu-card.case .image .cu-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: transparent;
+        padding: 0 30rpx;
+        word-wrap: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-.cu-list.menu > .cu-item .content {
-	line-height: 1.6em;
-	flex: 1;
-	font-size: 30rpx;
-}
+    .cu-card.case.no-card .image {
+        margin: 30rpx 30rpx 0;
+        overflow: hidden;
+        border-radius: 10rpx;
+    }
 
-.bg-pink {
-	background-color: #e03997;
-	color: #fff;
-}
+    .cu-card.dynamic {
+        display: block;
+    }
 
-.cu-tag {
-	font-size: 24rpx;
-	vertical-align: middle;
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	padding: 0rpx 16rpx;
-	height: 48rpx;
-	font-family: Helvetica Neue, Helvetica, sans-serif;
-}
+    .cu-card.dynamic > .cu-item {
+        display: block;
+        background-color: #fff;
+        overflow: hidden;
+    }
 
-.cu-tag.badge {
-	border-radius: 200rpx;
-	position: absolute;
-	top: -10rpx;
-	right: -10rpx;
-	font-size: 20rpx;
-	padding: 0rpx 10rpx;
-	height: 28rpx;
-	color: #fff;
-}
+    .text-content {
+        padding: 0 30rpx 0;
+        max-height: 6.4em;
+        overflow: hidden;
+        font-size: 30rpx;
+        line-height: 1.6;
+        margin-left: 10rpx;
+    }
 
-.avatar {
-}
+    .cu-card.dynamic > .cu-item .square-img {
+        width: 100%;
+        height: 200rpx;
+        border-radius: 6rpx;
+    }
 
-.cu-avatar.lg {
-	width: 96rpx;
-	height: 96rpx;
-	font-size: 2em;
-}
+    .cu-card.dynamic > .cu-item .only-img {
+        width: 100%;
+        height: 320rpx;
+        border-radius: 6rpx;
+    }
 
-.round {
-	border-radius: 5000rpx;
-}
+    .padding{
+        padding: 5rpx;
+    }
 
-.cu-avatar {
-	font-variant: small-caps;
-	margin: 0;
-	padding: 0;
-	display: inline-flex;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	background: #ccc;
-	color: #fff;
-	white-space: nowrap;
-	position: relative;
-	width: 64rpx;
-	height: 64rpx;
-	background-size: cover;
-	background-position: center;
-	vertical-align: middle;
-	font-size: 1.5em;
-}
-
-.cu-list.menu-avatar > .cu-item {
-	padding-left: 140rpx;
-}
-
-.cu-list.menu {
-	display: block;
-	overflow: hidden;
-}
-
-.cu-list + .cu-list {
-	margin-top: 30rpx;
-}
-
-.cu-list.menu > .cu-item {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	min-height: 100rpx;
-	background: #fff;
-	padding: 0 30rpx;
-}
-
-.shadow {
-	box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1);
-}
-
-.cu-card {
-	display: block;
-	overflow: hidden;
-}
-
-.cu-card > .cu-item {
-	display: block;
-	background-color: #fff;
-	overflow: hidden;
-	border-radius: 10rpx;
-	margin-left: 30rpx;
-	margin-right: 30rpx;
-}
-
-.cu-card > .cu-item.shadow-blur {
-	overflow: initial;
-}
-
-.cu-card.no-card > .cu-item {
-	margin: 0rpx;
-	border-radius: 0rpx;
-}
-
-.cu-card .grid.grid-square {
-	margin-bottom: -20rpx;
-}
-
-.cu-card.case .image {
-	position: relative;
-}
-
-.cu-card.case .image image {
-	width: 100%;
-}
-
-.cu-card.case .image .cu-tag {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-.cu-card.case .image .cu-bar {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	background-color: transparent;
-	padding: 0rpx 30rpx;
-	word-wrap: normal;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.cu-card.case.no-card .image {
-	margin: 30rpx 30rpx 0;
-	overflow: hidden;
-	border-radius: 10rpx;
-}
-
-.cu-card.dynamic {
-	display: block;
-}
-
-.cu-card.dynamic > .cu-item {
-	display: block;
-	background-color: #fff;
-	overflow: hidden;
-}
-
-.cu-card.dynamic > .cu-item > .text-content {
-	padding: 0 30rpx 0;
-	max-height: 6.4em;
-	overflow: hidden;
-	font-size: 30rpx;
-	margin-bottom: 20rpx;
-}
-
-.cu-card.dynamic > .cu-item .square-img {
-	width: 100%;
-	height: 200rpx;
-	border-radius: 6rpx;
-}
-
-.cu-card.dynamic > .cu-item .only-img {
-	width: 100%;
-	height: 320rpx;
-	border-radius: 6rpx;
-}
-
-.margin-top-sm {
-	margin-top: 20rpx;
-}
-
-.margin-bottom-sm {
-	margin-bottom: 20rpx;
-}
+    .right{
+        margin: 10rpx;
+    }
 </style>

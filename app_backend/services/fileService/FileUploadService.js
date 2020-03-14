@@ -26,7 +26,8 @@ class FileUploadService {
 		if (this.types.length === 0) {
 			return true;
 		}
-		const fileExt = file.name.split('.').pop();
+		const fileExt = file.name.split('.').pop().toLowerCase();
+		console.log('--fileExt---koa --->', fileExt);
 		if (this.types.indexOf(fileExt) !== -1) {
 			return true;
 		}
@@ -82,7 +83,6 @@ class FileUploadService {
 
 		const filePaths = [];
 		const files = ctx.request.files || {};
-
 		try {
 			for (const key in files) {
 				const file = files[key];

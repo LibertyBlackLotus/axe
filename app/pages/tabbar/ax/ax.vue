@@ -31,11 +31,11 @@ export default {
 	},
 
 	onLoad() { 
-		this.getUserAxList({author: getUserId()});	//获取用户斧头列表
+//		this.getUserAxList({author: getUserId()});	//获取用户斧头列表
 	},
 	
 	onShow(){
-		console.log('--onShow---');
+		console.log('--onShow---id--->',  getUserId() );
 		this.getUserAxList({author: getUserId()});
 	},
 	
@@ -69,15 +69,14 @@ export default {
 	    }
 	  },
 
+	onPullDownRefresh() {
+		this.getUserAxList({author: getUserId()});
+	},
+
 	methods: {
 		...mapActions([
 			'getUserAxList'
 		]),
-		
-		onPullDownRefresh() {
-			console.log('onPullDownRefresh');
-			this.getUserAxList({author: getUserId()});							
-		},		 
 		
 		//点击一条斧头
 		choose(){

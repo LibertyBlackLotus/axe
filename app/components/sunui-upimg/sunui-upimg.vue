@@ -9,7 +9,9 @@
 					<view class="sunui-loader-filecontent" v-if="item.upload_percent < 100">{{ item.upload_percent }}%</view>
 				</view>
 			</block>
-			<view v-show="upload_len < upload_count" hover-class="sunui-uploader-hover" class="sunui-uploader-inputbox" @click="chooseImage" :style="upload_img_wh">
+			<!-- <view v-show="upload_len < upload_count" hover-class="sunui-uploader-hover" -->
+			<view hover-class="sunui-uploader-hover" 
+			      class="sunui-uploader-inputbox" @click="chooseImage" :style="upload_img_wh">
 				<view><text class="iconfont icon-mn_shangchuantupian" style="color: #666;"></text></view>
 			</view>
 		</view>
@@ -26,7 +28,7 @@ export default {
 			upload_before_list: []
 		};
 	},
-	name: 'sunui-upimg',
+	name: 'sunuiUpimg',
 	props: {
 		// 服务器url
 		url: {
@@ -73,17 +75,19 @@ export default {
 			}
 		}, 
 	},
-	async created() {
+	
+	onLoad() {
 		let _self = this;
 		setTimeout(() => {
 			this.upload_before_list = this.upload_before_list.concat(this.upimg_preview);
 			this.upload_len = this.upload_before_list.length;
+			console.log('---created-sunui-->', this.upload_len);
 			this.upimg_preview.map(item => {
 				// step2.这里修改服务器返回字段 ！！！
 				this.upload_cache_list.push(item.path);
 			});
 			this.emit();
-		}, this.upimg_delaytime);
+		}, 300);
 	},
 
 	methods: { 

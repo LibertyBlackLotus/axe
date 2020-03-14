@@ -2,25 +2,32 @@
   "pages": [
     "pages/tabbar/home/home",
     "pages/tabbar/home/detail",
+    "pages/tabbar/home/searchResult",
     "pages/tabbar/focus/focus",
     "pages/tabbar/ax/ax",
     "pages/tabbar/ax/add",
-    "pages/tabbar/message/message",
+    "pages/tabbar/community/community",
     "pages/tabbar/my/my",
-    "pages/tabbar-add-detial/tabbar-3-release/tabbar-3-release",
-    "pages/login/login"
+    "pages/tabbar/my/settings",
+    "pages/tabbar/my/message",
+    "pages/tabbar/my/history",
+    "pages/tabbar/my/searchRecord",
+    "pages/tabbar/my/collection",
+    "pages/login/login",
+    "pages/login/register",
+    "pages/login/forget"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "斧头",
-    "navigationBarBackgroundColor": "#409EFF",
-    "backgroundColor": "#409EFF"
+    "navigationBarBackgroundColor": "#f4d03f",
+    "backgroundColor": "#f4d03f"
   },
   "tabBar": {
-    "borderStyle": "black",
+    "borderStyle": "#f1f1f1",
     "backgroundColor": "#fff",
     "color": "#8F8F94",
-    "selectedColor": "#409EFF",
+    "selectedColor": "#f4d03f",
     "list": [
       {
         "pagePath": "pages/tabbar/home/home",
@@ -41,10 +48,10 @@
         "text": "斧头"
       },
       {
-        "pagePath": "pages/tabbar/message/message",
-        "iconPath": "static/img/tabbar/message.png",
-        "selectedIconPath": "static/img/tabbar/messageActive.png",
-        "text": "消息"
+        "pagePath": "pages/tabbar/community/community",
+        "iconPath": "static/img/tabbar/community.png",
+        "selectedIconPath": "static/img/tabbar/communityActive.png",
+        "text": "社区"
       },
       {
         "pagePath": "pages/tabbar/my/my",

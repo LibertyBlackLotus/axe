@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const tokenConfig = require('../config').tokenConfig;
 const UserService = require('../services').UserService;
 const {InvalidQueryError} = require('../lib/error');
@@ -20,9 +21,10 @@ module.exports = {
 		if (!user) {
 			ctx.error = '用户不存在';
 			ctx.code = 0
-		} else if (user.password !== password) {
-			ctx.error = '密码错误';
-		} else {
+		}else if (!bcrypt.compareSync(password, user.password)) {
+		 	ctx.error = '密码错误';
+			ctx.code = 0;
+		}else {
 			ctx.result = {
 				userInfo: user,
 				token: jwt.sign({
@@ -42,22 +44,24 @@ module.exports = {
 	 * @constructor
 	 */
 	'POST /api/register': async (ctx, next) => {
-		const {openId} = ctx.request.body;
 		const data = ctx.request.body;
-		if (!data.openId || !data.username) {
+		if (!data.username || !data.password) {
 			throw new InvalidQueryError()
 		}
-		let user = await UserService.findOne({openId});
-		if (user) {
-			ctx.result = {
-				userInfo: user,
-				token: user.accessToken
-			}
+		let user = await UserService.findOne({username:data.username});
+		if(user){
+			ctx.error = '用户已存在';
+			ctx.code = 0;
 		} else {
-			const user = await UserService.save(data);
+			let salt = bcrypt.genSaltSync(10);
+			data.password = bcrypt.hashSync(data.password, salt);  //密码加密
+			let user = await UserService.save(data);
 			ctx.result = {
 				userInfo: user,
-				token: user.accessToken
+				token: jwt.sign({
+					data: user._id,
+					exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 3), //设置 token 过期时间: 3d
+				}, tokenConfig.secret)
 			}
 		}
 		return next();

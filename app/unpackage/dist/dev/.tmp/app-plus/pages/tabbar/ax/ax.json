@@ -1,14 +1,5 @@
 {
   "enablePullDownRefresh": true,
-  "titleNView": {
-    "type": "default",
-    "searchInput": {
-      "backgroundColor": "#fff",
-      "borderRadius": "6px",
-      "placeholder": "请输入搜索内容",
-      "disabled": true
-    }
-  },
   "usingComponents": {
     "waterfall-flow": "/components/nairenk-waterfall-flow/nairenk-waterfall-flow"
   }

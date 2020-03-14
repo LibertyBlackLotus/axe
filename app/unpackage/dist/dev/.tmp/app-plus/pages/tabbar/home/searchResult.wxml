@@ -1,0 +1,1 @@
+<view><block wx:if="{{axSearchList.length==0}}"><view class="content">无结果</view></block><block wx:for="{{axSearchList}}" wx:for-item="item" wx:for-index="__i0__" wx:key="_id"><n-a-u-icard vue-id="{{'1-'+__i0__}}" listData="{{item}}" bind:__l="__l"></n-a-u-icard></block></view>

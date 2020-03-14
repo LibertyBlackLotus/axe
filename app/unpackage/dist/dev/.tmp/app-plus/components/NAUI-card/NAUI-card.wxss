@@ -1,273 +1,207 @@
-
-.bg-orange {
-	background-color: #f37b1d;
-	color: #fff;
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.cu-card.data-v-6ab5877e {
+  display: block;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  border-bottom: 1px solid #f1f1f1;
 }
-.cu-tag.sm {
-	font-size: 20rpx;
-	padding: 0rpx 12rpx;
-	height: 32rpx;
+.flex-sub.data-v-6ab5877e {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
-.padding {
-	padding: 30rpx;
+.grid.data-v-6ab5877e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  /*padding: 10rpx 0;*/
 }
-.text-right {
-	text-align: right;
+.grid.col-1 > view.data-v-6ab5877e {
+  width: 100%;
 }
-.bg-img {
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+.justify-between.data-v-6ab5877e {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
-.padding-lr {
-	padding-left: 30rpx;
-	padding-right: 30rpx;
+.flex.data-v-6ab5877e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
 }
-.padding-tbl {
-	padding-left: 20rpx;
-	padding-top: 20rpx;
-	padding-bottom: 20rpx;
+.henflex.data-v-6ab5877e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row;
+          flex-flow: row;
 }
-.flex-sub {
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	        flex: 1;
+.cu-list.menu > .cu-item .content.data-v-6ab5877e {
+  line-height: 1.6em;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  font-size: 30rpx;
 }
-.grid {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	        flex-wrap: wrap;
-	padding: 10rpx 0;
+.cu-tag.badge.data-v-6ab5877e {
+  border-radius: 200rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  font-size: 20rpx;
+  padding: 0 10rpx;
+  height: 28rpx;
+  color: #fff;
 }
-.grid.col-1 > view {
-	width: 100%;
+.cu-avatar.lg.data-v-6ab5877e {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 2em;
 }
-.text-content {
-	line-height: 1.6;
+.cu-avatar.data-v-6ab5877e {
+  font-variant: small-caps;
+  margin: 0;
+  padding: 0;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  background: #fff;
+  color: #fff;
+  white-space: nowrap;
+  position: relative;
+  width: 64rpx;
+  height: 64rpx;
+  background-size: cover;
+  background-position: center;
+  vertical-align: middle;
+  font-size: 1.5em;
 }
-.justify-between {
-	-webkit-box-pack: justify;
-	-webkit-justify-content: space-between;
-	        justify-content: space-between;
+.cu-list.menu.data-v-6ab5877e {
+  display: block;
+  overflow: hidden;
 }
-.flex {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
+.cu-list + .cu-list.data-v-6ab5877e {
+  margin-top: 30rpx;
 }
-.text-sm {
-	font-size: 24rpx;
+.cu-list.menu > .cu-item.data-v-6ab5877e {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  min-height: 100rpx;
+  background: #fff;
+  /*padding: 0 30rpx;*/
 }
-.text-bold {
-	font-weight: bold;
+.cu-card > .cu-item.shadow-blur.data-v-6ab5877e {
+  overflow: initial;
 }
-.text-gray {
-	color: #aaa;
+.cu-card.no-card > .cu-item.data-v-6ab5877e {
+  margin: 0rpx;
+  border-radius: 0rpx;
 }
-.text-orange {
-	color: #f37b1d;
+.cu-card .grid.grid-square.data-v-6ab5877e {
+  margin-bottom: -20rpx;
 }
-.huati {
-	margin-left: auto;
-	margin-right: 20rpx;
+.cu-card.case .image.data-v-6ab5877e {
+  position: relative;
 }
-.bg-blue {
-	background-color: #0081ff;
-	color: #fff;
+.cu-card.case .image image.data-v-6ab5877e {
+  width: 100%;
 }
-.right {
-	margin-left: 20rpx;
+.cu-card.case .image .cu-tag.data-v-6ab5877e {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
-.henflex {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-flow: row;
-	        flex-flow: row;
+.cu-card.case .image .cu-bar.data-v-6ab5877e {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 0 30rpx;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.cu-list.menu > .cu-item .content {
-	line-height: 1.6em;
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	        flex: 1;
-	font-size: 30rpx;
+.cu-card.case.no-card .image.data-v-6ab5877e {
+  margin: 30rpx 30rpx 0;
+  overflow: hidden;
+  border-radius: 10rpx;
 }
-.bg-pink {
-	background-color: #e03997;
-	color: #fff;
+.cu-card.dynamic.data-v-6ab5877e {
+  display: block;
 }
-.cu-tag {
-	font-size: 24rpx;
-	vertical-align: middle;
-	position: relative;
-	display: -webkit-inline-box;
-	display: -webkit-inline-flex;
-	display: inline-flex;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
-	box-sizing: border-box;
-	padding: 0rpx 16rpx;
-	height: 48rpx;
-	font-family: Helvetica Neue, Helvetica, sans-serif;
+.cu-card.dynamic > .cu-item.data-v-6ab5877e {
+  display: block;
+  background-color: #fff;
+  overflow: hidden;
 }
-.cu-tag.badge {
-	border-radius: 200rpx;
-	position: absolute;
-	top: -10rpx;
-	right: -10rpx;
-	font-size: 20rpx;
-	padding: 0rpx 10rpx;
-	height: 28rpx;
-	color: #fff;
+.text-content.data-v-6ab5877e {
+  padding: 0 30rpx 0;
+  max-height: 6.4em;
+  overflow: hidden;
+  font-size: 30rpx;
+  line-height: 1.6;
+  margin-left: 10rpx;
 }
-.avatar {
+.cu-card.dynamic > .cu-item .square-img.data-v-6ab5877e {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 6rpx;
 }
-.cu-avatar.lg {
-	width: 96rpx;
-	height: 96rpx;
-	font-size: 2em;
+.cu-card.dynamic > .cu-item .only-img.data-v-6ab5877e {
+  width: 100%;
+  height: 320rpx;
+  border-radius: 6rpx;
 }
-.round {
-	border-radius: 5000rpx;
+.padding.data-v-6ab5877e {
+  padding: 5rpx;
 }
-.cu-avatar {
-	font-variant: small-caps;
-	margin: 0;
-	padding: 0;
-	display: -webkit-inline-box;
-	display: -webkit-inline-flex;
-	display: inline-flex;
-	text-align: center;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
-	background: #ccc;
-	color: #fff;
-	white-space: nowrap;
-	position: relative;
-	width: 64rpx;
-	height: 64rpx;
-	background-size: cover;
-	background-position: center;
-	vertical-align: middle;
-	font-size: 1.5em;
-}
-.cu-list.menu-avatar > .cu-item {
-	padding-left: 140rpx;
-}
-.cu-list.menu {
-	display: block;
-	overflow: hidden;
-}
-.cu-list + .cu-list {
-	margin-top: 30rpx;
-}
-.cu-list.menu > .cu-item {
-	position: relative;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: justify;
-	-webkit-justify-content: space-between;
-	        justify-content: space-between;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
-	min-height: 100rpx;
-	background: #fff;
-	padding: 0 30rpx;
-}
-.shadow {
-	box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1);
-}
-.cu-card {
-	display: block;
-	overflow: hidden;
-}
-.cu-card > .cu-item {
-	display: block;
-	background-color: #fff;
-	overflow: hidden;
-	border-radius: 10rpx;
-	margin-left: 30rpx;
-	margin-right: 30rpx;
-}
-.cu-card > .cu-item.shadow-blur {
-	overflow: initial;
-}
-.cu-card.no-card > .cu-item {
-	margin: 0rpx;
-	border-radius: 0rpx;
-}
-.cu-card .grid.grid-square {
-	margin-bottom: -20rpx;
-}
-.cu-card.case .image {
-	position: relative;
-}
-.cu-card.case .image image {
-	width: 100%;
-}
-.cu-card.case .image .cu-tag {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-.cu-card.case .image .cu-bar {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	background-color: transparent;
-	padding: 0rpx 30rpx;
-	word-wrap: normal;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-.cu-card.case.no-card .image {
-	margin: 30rpx 30rpx 0;
-	overflow: hidden;
-	border-radius: 10rpx;
-}
-.cu-card.dynamic {
-	display: block;
-}
-.cu-card.dynamic > .cu-item {
-	display: block;
-	background-color: #fff;
-	overflow: hidden;
-}
-.cu-card.dynamic > .cu-item > .text-content {
-	padding: 0 30rpx 0;
-	max-height: 6.4em;
-	overflow: hidden;
-	font-size: 30rpx;
-	margin-bottom: 20rpx;
-}
-.cu-card.dynamic > .cu-item .square-img {
-	width: 100%;
-	height: 200rpx;
-	border-radius: 6rpx;
-}
-.cu-card.dynamic > .cu-item .only-img {
-	width: 100%;
-	height: 320rpx;
-	border-radius: 6rpx;
-}
-.margin-top-sm {
-	margin-top: 20rpx;
-}
-.margin-bottom-sm {
-	margin-bottom: 20rpx;
+.right.data-v-6ab5877e {
+  margin: 10rpx;
 }
 

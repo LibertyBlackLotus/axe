@@ -1,6 +1,14 @@
 {
   "enablePullDownRefresh": true,
+  "titleNView": {
+    "type": "default",
+    "searchInput": {
+      "backgroundColor": "#fff",
+      "borderRadius": "6px",
+      "placeholder": "请输入搜索内容"
+    }
+  },
   "usingComponents": {
-    "n-a-u-icard": "/components/NAUI-card/NAUI-card"
+    "card": "/pages/tabbar/home/card"
   }
 }

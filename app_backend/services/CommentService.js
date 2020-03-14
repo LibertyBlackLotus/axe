@@ -1,5 +1,5 @@
-const BaseDAO = require('../lib/baseDAO')
-const Comment = require('../models').comment
+const BaseDAO = require('../lib/baseDAO');
+const Comment = require('../models').comment;
 
 class CommentService extends BaseDAO {
   constructor(model) {
@@ -8,4 +8,4 @@ class CommentService extends BaseDAO {
 
 }
 
-module.exports = new CommentService(Comment)
+module.exports = new CommentService(Comment);

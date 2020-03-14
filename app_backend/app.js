@@ -20,14 +20,15 @@ app.use(loggerMiddleware);
 
 // Error Handler
 app.use(errorHandler);
-
 app.use(koaBody({
 	multipart: true,
+	strict: false,
 	formidable: {
 		keepExtensions: true,
 		maxFieldsSize: 10 * 1024 * 1024
 	}
 }));
+
 
 // Static
 app.use(static(config.publicDir));

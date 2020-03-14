@@ -2,17 +2,22 @@ const Schema = require('mongoose').Schema;
 module.exports = {
 	name: "user",
 	schema: {
-		openId: {
-			type: String,
-			required: true
-		},  //微信ID
 		username: {
 			type: String,
 			required: true
 		}, // 用户名
 		password: {
-			type: String
+			type: String,
+			required: true
 		}, // 密码
+		weixin: {
+			type: Schema.Types.ObjectId,
+			ref: 'weixin'
+		},
+		followed: {
+			type: Number,
+			default: 0
+		},
 		accessToken: String,  //token
 		avatar: String,   //头像
 		nickname: String, // 昵称

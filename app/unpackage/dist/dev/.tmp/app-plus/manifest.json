@@ -42,8 +42,8 @@
     },
     "statusbar": {
       "immersed": "supportedDevice",
-      "style": "dark",
-      "background": "#409EFF"
+      "style": "light",
+      "background": "#f4d03f"
     },
     "usingComponents": true,
     "nvueCompiler": "uni-app",
@@ -164,10 +164,10 @@
       }
     },
     "tabBar": {
-      "borderStyle": "rgba(0,0,0,0.4)",
+      "borderStyle": "#f1f1f1",
       "backgroundColor": "#fff",
       "color": "#8F8F94",
-      "selectedColor": "#409EFF",
+      "selectedColor": "#f4d03f",
       "list": [
         {
           "pagePath": "pages/tabbar/home/home",
@@ -188,10 +188,10 @@
           "text": "斧头"
         },
         {
-          "pagePath": "pages/tabbar/message/message",
-          "iconPath": "static/img/tabbar/message.png",
-          "selectedIconPath": "static/img/tabbar/messageActive.png",
-          "text": "消息"
+          "pagePath": "pages/tabbar/community/community",
+          "iconPath": "static/img/tabbar/community.png",
+          "selectedIconPath": "static/img/tabbar/communityActive.png",
+          "text": "社区"
         },
         {
           "pagePath": "pages/tabbar/my/my",
