@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view class="content" v-if="axFocusList.length == 0">
+			暂无内容
+		</view>
 		<NAUIcard v-for="item in axFocusList"
 				  :key="item._id"
 				  :listData="item">

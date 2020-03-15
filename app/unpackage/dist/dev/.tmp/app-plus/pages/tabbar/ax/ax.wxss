@@ -26,18 +26,18 @@
 /* 文章场景相关 */
 .createButton.data-v-6b622ca3 {
   position: fixed;
-  bottom: 10rpx;
+  bottom: 30rpx;
   right: 10rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  width: 100%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
+  opacity: 0.7;
 }
 .createButton button.data-v-6b622ca3 {
-  -webkit-box-flex: 1;
-  -webkit-flex: auto;
-          flex: auto;
+    width: 200rpx;
 }
 

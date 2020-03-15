@@ -26,15 +26,15 @@ module.exports = {
 	'GET /api/axRead/user/:user': async (ctx, next) => {
 		const {user} = ctx.params;
 		const result = await AxReadService.findMany({user});
-		let axIds = [];
-		result.forEach((item) => {
-			axIds.push(item.ax);
-		});
-		const axs = await AxService.findManyPopulate({state: 1, _id: axIds});
-		if (!axs) {
+		// let axIds = [];
+		// result.forEach((item) => {
+		// 	axIds.push(item.ax);
+		// });
+		// const axs = await AxService.findManyPopulate({state: 1, _id: axIds});
+		if (!result) {
 			ctx.error = '获取列表失败'
 		} else {
-			ctx.result = axs;
+			ctx.result = result;
 		}
 		return next();
 	},

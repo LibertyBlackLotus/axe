@@ -1,1 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"content.",[1],"data-v-07987c3a { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; justify-content: center; }\n",],undefined,{path:"./pages/tabbar/my/settings.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabbar/my/settings.wxml') } }));

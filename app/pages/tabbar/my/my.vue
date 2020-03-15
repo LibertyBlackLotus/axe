@@ -1,18 +1,18 @@
 <template>
     <view class="content">
-        <view class="axAuthor">
+        <view class="axAuthor" @click="navigateMethod('./profile')">
             <view class="flex axAuthorImg">
                 <image :src="userInfo.author.avatar? userInfo.author.avatar: defaultAvatar"></image>
             </view>
             <view class="flex authorItem">
                 <view>
-                    {{userInfo.username}}
+                    {{userInfo.nickname? userInfo.nickname: userInfo.username}}
                 </view>
             </view>
             <view></view>
         </view>
 
-        <uni-list>
+        <uni-list class="mySet">
             <uni-list-item title="收藏"
                            :show-extra-icon="true"
                            :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}"
@@ -33,11 +33,15 @@
                            :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}"
                            @click="navigateMethod('./searchRecord')">
             </uni-list-item>
-
             <uni-list-item title="设置"
                            :show-extra-icon="true"
                            :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}"
                            @click="navigateMethod('./settings')">
+            </uni-list-item>
+            <uni-list-item title="关于"
+                           :show-extra-icon="true"
+                           :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}"
+                           @click="navigateMethod('./about')">
             </uni-list-item>
         </uni-list>
     </view>
@@ -87,8 +91,8 @@ import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
         background-color: $main-color;
             .axAuthorImg{
                 image{
-                    width: 50rpx;
-                    height:50rpx;
+                    width: 100rpx;
+                    height:100rpx;
                     border-radius: 100%;
                 }
             }
@@ -98,6 +102,12 @@ import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
             .authorItem{
                 display: flex;
                 flex-direction: column;
+                color: #fff;
             }
+    }
+    .mySet{
+        uni-list-item{
+            border: none !important;
+        }
     }
 </style>

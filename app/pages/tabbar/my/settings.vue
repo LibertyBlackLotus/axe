@@ -1,19 +1,18 @@
 <template>
 	<view class="content">
-		设置
-		<button type="primary" @tap="logout">退出登录</button>
+		<button type="warn" size="mini" plain @tap="logout">退出登录</button>
 	</view>
 </template>
 
 <script>
+	import uniList from "@/components/uni-list/uni-list.vue";
+	import uniListItem from "@/components/uni-list-item/uni-list-item.vue";
 	export default {
-		data() {
-			return {
-			}
+		components: {
+			uniList,
+			uniListItem
 		},
-		onLoad() {
 
-		},
 		methods: {
 			//退出登录
 			logout() {
@@ -32,5 +31,8 @@
 </script>
 
 <style lang="scss" scoped>
-
+	.content{
+		display: flex;
+		justify-content: center;
+	}
 </style>

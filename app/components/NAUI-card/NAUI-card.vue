@@ -3,13 +3,13 @@
         <view>
             <view class="cu-list menu menu-avatar">
                 <view class="cu-item">
-                    <view class="cu-avatar round lg">
+                    <view class="cu-avatar1">
                         <!-- 头像，匿名时显示统一的匿名头像，若需自定义请自行修改 -->
-                        <image class="avatar round"
+                        <image class=""
                                :src="listData.author.avatar? listData.author.avatar: defaultAvatar">
                         </image>
                     </view>
-                    <view class="content padding-tbl">
+                    <view class="content1">
                         <view class="henflex">
                             <view>{{ listData.author ? listData.author.username : '吃瓜群众' }}</view>
                         </view>
@@ -112,7 +112,6 @@
     .grid {
         display: flex;
         flex-wrap: wrap;
-        /*padding: 10rpx 0;*/
     }
 
     .grid.col-1 > view {
@@ -127,15 +126,8 @@
         display: flex;
     }
 
-    .henflex {
-        display: flex;
-        flex-flow: row;
-    }
-
-    .cu-list.menu > .cu-item .content {
-        line-height: 1.6em;
-        flex: 1;
-        font-size: 30rpx;
+    .cu-list.menu > .cu-item .content1 {
+        flex: auto;
     }
 
     .cu-tag.badge {
@@ -155,24 +147,15 @@
         font-size: 2em;
     }
 
-    .cu-avatar {
-        font-variant: small-caps;
+    .cu-avatar1 {
         margin: 0;
         padding: 0;
-        display: inline-flex;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
         background: #fff;
-        color: #fff;
-        white-space: nowrap;
-        position: relative;
-        width: 64rpx;
-        height: 64rpx;
-        background-size: cover;
-        background-position: center;
-        vertical-align: middle;
-        font-size: 1.5em;
+        flex: 0 0 100rpx;
+        image{
+            width: 64rpx;
+            height: 64rpx;
+        }
     }
 
     .cu-list.menu {
@@ -185,13 +168,7 @@
     }
 
     .cu-list.menu > .cu-item {
-        position: relative;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        min-height: 100rpx;
-        background: #fff;
-        /*padding: 0 30rpx;*/
     }
 
     .cu-card > .cu-item.shadow-blur {

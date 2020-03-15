@@ -181,7 +181,7 @@
   overflow: hidden;
 }
 .text-content.data-v-5e666754 {
-  padding: 30rpx 30rpx;
+  padding: 15rpx 15rpx;
   overflow: hidden;
   font-size: 30rpx;
 }
@@ -202,10 +202,11 @@
   text-align: right;
 }
 .heartArrowClass.data-v-5e666754 {
-  margin-right: 30rpx;
+  margin-right: 50rpx;
 }
 .heartArrowClass image.data-v-5e666754 {
     width: 40rpx;
     height: 40rpx;
+    margin-right: 5rpx;
 }
 

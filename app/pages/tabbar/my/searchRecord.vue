@@ -7,6 +7,7 @@
 			<uni-list>
 				<uni-list-item v-for="item in search"
 							   :key="item._id"
+							   :show-arrow="false"
 							   :title="item.keywords"
 							   :note="item.create_time | formatTime"
 							   @click="toSearch(item.keywords)">
@@ -33,7 +34,7 @@
 			})
 		},
 
-		onLoad() {
+		onShow() {
 			this.getSearchRecordList({user: getUserId()});
 		},
 

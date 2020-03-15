@@ -69,9 +69,21 @@
 			}
 		},
 		{
+			"path": "pages/tabbar/my/profile",
+			"style": {
+				"navigationBarTitleText": "编辑资料"
+			}
+		},
+		{
 			"path": "pages/tabbar/my/settings",
 			"style": {
 				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/tabbar/my/about",
+			"style": {
+				"navigationBarTitleText": "关于"
 			}
 		},
 		{

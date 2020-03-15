@@ -37,10 +37,15 @@
           align-items: center;
   padding: 10rpx 30rpx;
 }
+.axAuthor .axAuthorImg.data-v-38d5c115 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100rpx;
+            flex: 0 0 100rpx;
+}
 .axAuthor .axAuthorImg image.data-v-38d5c115 {
-    width: 50rpx;
-    height: 50rpx;
-    border-radius: 100%;
+      width: 50rpx;
+      height: 50rpx;
+      border-radius: 100%;
 }
 .axAuthor .flex.data-v-38d5c115 {
     -webkit-box-flex: 1;

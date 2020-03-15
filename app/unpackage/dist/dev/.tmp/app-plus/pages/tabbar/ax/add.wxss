@@ -27,6 +27,17 @@
 .axContent.data-v-3cca8836 {
   padding: 25rpx;
 }
+.axContent .publishAx.data-v-3cca8836 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+}
+.axContent .publishAx button.data-v-3cca8836 {
+      width: 100%;
+}
 .axTitle.data-v-3cca8836 {
   padding: 10rpx;
   margin: 20rpx 0;

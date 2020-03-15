@@ -3,13 +3,14 @@
 		<sunui-upimg :url="uploadUrl"
 					 @set-aximg="setAxImg"
 					 :header="header">
-
 		</sunui-upimg>
 		<view>
 			<view class="axTitle"><input class="uni-input" v-model="title" placeholder="添加标题" /></view>
 			<view class="axDesc"><textarea auto-height placeholder="心情状态,分享生活点滴" v-model="content" /></view>
 		</view>
-		<button type="primary" @click="publishAx">发布</button>
+		<view class="publishAx">
+			<button type="warn" size="mini" plain @click="publishAx">发布</button>
+		</view>
 	</view>
 </template>
 
@@ -101,6 +102,13 @@ export default {
 <style lang="scss" scoped>
 .axContent {
 	padding: 25rpx;
+	.publishAx{
+		display: flex;
+		justify-content: center;
+		button{
+			width: 100%;
+		}
+	}
 }
 
 .axTitle {

@@ -36,8 +36,8 @@
   background-color: #f4d03f;
 }
 .axAuthor .axAuthorImg image.data-v-49fe66fa {
-    width: 50rpx;
-    height: 50rpx;
+    width: 100rpx;
+    height: 100rpx;
     border-radius: 100%;
 }
 .axAuthor .flex.data-v-49fe66fa {
@@ -53,5 +53,9 @@
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
             flex-direction: column;
+    color: #fff;
+}
+.mySet uni-list-item.data-v-49fe66fa {
+  border: none !important;
 }
 

@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "浏览历史",
   "usingComponents": {
-    "n-a-u-icard": "/components/NAUI-card/NAUI-card"
+    "uni-list": "/components/uni-list/uni-list",
+    "uni-list-item": "/components/uni-list-item/uni-list-item"
   }
 }

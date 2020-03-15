@@ -10,6 +10,10 @@ module.exports = {
 			type: Schema.Types.ObjectId,
 			ref: 'user'
 		}, // 作者
+		title: {
+			type: String,
+			require: true
+		},
 		create_time: {
 			type: Date,
 			default: Date.now

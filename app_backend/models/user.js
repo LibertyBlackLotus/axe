@@ -24,6 +24,7 @@ module.exports = {
 		phone_num: String, // 电话号码
 		email: String,     // 邮箱
 		birthday: String,  // 生日
+		gender: String,    //性别
 		last_login_time: String, // 上次登录时间
 		create_time: {
 			type: Date,

@@ -5,7 +5,6 @@
             <view class="cu-list menu menu-avatar" v-if="false">
                 <view class="cu-item">
                     <view class="cu-avatar round lg">
-                        <!-- 头像，匿名时显示统一的匿名头像，若需自定义请自行修改 -->
                         <image class="avatar round"
                                :src="listData.author.avatar? listData.author.avatar: defaultAvatar">
                         </image>
@@ -224,7 +223,7 @@
     }
 
     .text-content {
-        padding: 30rpx 30rpx;
+        padding: 15rpx 15rpx;
         overflow: hidden;
         font-size: 30rpx;
     }
@@ -249,10 +248,11 @@
         text-align: right;
     }
     .heartArrowClass{
-        margin-right: 30rpx;
+        margin-right: 50rpx;
         image{
             width: 40rpx;
             height: 40rpx;
+            margin-right: 5rpx;
         }
     }
 

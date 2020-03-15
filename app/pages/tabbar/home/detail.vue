@@ -9,7 +9,7 @@
 		</view>
 		<view>
 			<view class="axAuthor">
-				<view class="flex axAuthorImg">
+				<view class="axAuthorImg">
 					<image :src="axDetail.author.avatar? axDetail.author.avatar: defaultAvatar"></image>
 				</view>
 				<view class="flex authorItem">
@@ -106,7 +106,6 @@ export default {
 			this.getAxDetailMethod();
 			this.isPraisedMethod();
 			this.isCollectedMethod();
-			this.readRecord();
 		}catch (e){
 			console.error(e);
 		}
@@ -143,6 +142,7 @@ export default {
 					friend: res.author._id
 				};
 				this.isFollowed(params); //判断是否关注了用户
+				this.readRecord();       //添加阅读记录
 			});
 		},
 
@@ -168,7 +168,8 @@ export default {
 		readRecord(){
 			let params = {
 				ax: this.axId,
-				user: this.userId
+				user: this.userId,
+				title: this.axDetail.title
 			};
 			this.createAxRead(params);
 		},
@@ -232,7 +233,6 @@ export default {
 		},
 
 		count(count){
-			console.log('---count--->', count);
 			this.commentCount = count;
 		}
 	}
@@ -249,6 +249,7 @@ export default {
 		align-items: center;
 		padding: 10rpx 30rpx;
 		.axAuthorImg{
+			flex: 0 0 100rpx;
 			image{
 				width: 50rpx;
 				height:50rpx;

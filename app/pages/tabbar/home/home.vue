@@ -1,23 +1,49 @@
 <template>
-	<view>  		 
+	<view>
+		<!--<ms-tabs :list="list" v-model="active">-->
+			<!--<template v-slot:title="{title}">-->
+				<!--<card v-for="item in axList"-->
+					<!--:key="item._id"-->
+					<!--:listData="item">-->
+				<!--</card>-->
+			<!--</template>-->
+		<!--</ms-tabs>-->
+
 		<card v-for="item in axList"
-				:key="item._id"
-		       :listData="item">
+			  :key="item._id"
+			  :listData="item">
 		</card>
 	</view>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'; 
+import { mapState, mapActions } from 'vuex';
+//import sTabs from '@/components/s-tabs';
+//import sTab from '@/components/s-tab';
+import msTabs from '@/components/ms-tabs/ms-tabs';
 import card from './card.vue';
 
 export default {
 	data() {
-		return {};
+		return {
+			list: [{
+				title: 'test1'
+			}, {
+				title: 'test2'
+			}],
+			active: 0
+		};
 	},
 
 	components: {
+		msTabs,
 		card
+	},
+
+	watch:{
+		active() {
+			console.log(this.active)
+		}
 	},
 
 	computed: {
@@ -83,6 +109,10 @@ export default {
 			}catch(e){
 				console.error(e);
 			}
+		},
+
+		change (index) {
+			console.log(index);
 		}
 	}
 };

@@ -2,7 +2,7 @@
 	<view>   
 		<waterfall-flow :list="axListUser" @click="choose"></waterfall-flow>
 		<view class="createButton" v-if="isShow">
-			<button type="primary" @click="createAx" >创建斧头</button>
+			<button type="default" size="mini" plain @click="createAx" >创建斧头</button>
 		</view>		
 	</view>
 </template>
@@ -29,27 +29,13 @@ export default {
 			axListStatus: state => state.ax.axListStatus //获取状态
 		})
 	},
-
-	onLoad() { 
-//		this.getUserAxList({author: getUserId()});	//获取用户斧头列表
-	},
 	
 	onShow(){
-		console.log('--onShow---id--->',  getUserId() );
 		this.getUserAxList({author: getUserId()});
 	},
 	
 	onPageScroll(e){
-		console.log('---onPageScroll->', e);
-		this.isShow = false; 
-		// let that = this;  
-		// if(that.scroll > e.scrollTop){  
-		// 	console.log("向上滚动");  
-		// }else{  
-		// 	console.log("向下滚动");   
-		// }  
-		// that.scroll = e.scrollTop;  
-		
+		this.isShow = false;
 		let _this = this;
 		if(this.timeout){
 			clearTimeout(this.timeout);
@@ -96,12 +82,14 @@ export default {
 <style lang="scss" scoped> 
 	.createButton{
 		position: fixed;
-		bottom: 10rpx;
+		bottom: 30rpx;
 		right: 10rpx;
 		display: flex;
+		width: 100%;
 		justify-content: center;
+		opacity: 0.7;
+		button{
+			width: 200rpx;
+		}
 	}
-	.createButton button{
-		flex: auto;
-	} 
 </style>

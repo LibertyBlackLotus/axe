@@ -1,1 +1,1 @@
-<view class="content data-v-07987c3a">设置<button type="primary" data-event-opts="{{[['tap',[['logout',['$event']]]]]}}" bindtap="__e" class="data-v-07987c3a">退出登录</button></view>
+<view class="content data-v-07987c3a"><button type="warn" size="mini" plain data-event-opts="{{[['tap',[['logout',['$event']]]]]}}" bindtap="__e" class="data-v-07987c3a">退出登录</button></view>
